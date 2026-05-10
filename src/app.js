@@ -28,4 +28,9 @@ app.use(notifyRoutes);
 app.use(telegramRoutes);
 app.use(userDataRoutes);
 
+// Barcha topilmagan marshrutlar uchun JSON 404 qaytarish
+app.use((req, res) => {
+  res.status(404).json({ error: `Not Found: ${req.method} ${req.originalUrl}` });
+});
+
 export default app;
