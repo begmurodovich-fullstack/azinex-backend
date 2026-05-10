@@ -180,7 +180,7 @@ export async function handleWebhookUpdate(update) {
       }
       break;
     case "👨‍💻 Dasturchi bilan bog‘lanish":
-      await sendMessage(chatId, "👨‍💻 Dasturchi bilan bog‘lanish uchun: @begmurodovich", "HTML", MAIN_KEYBOARD);
+      await sendMessage(chatId, "👨‍💻 Dasturchi bilan bog‘lanish uchun: @begmurodovichDeveloper", "HTML", MAIN_KEYBOARD);
       break;
     default:
       await sendMessage(chatId, "Bosh menyu:", "HTML", MAIN_KEYBOARD);
