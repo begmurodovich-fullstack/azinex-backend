@@ -31,6 +31,8 @@ export function createUser({ id, email, passwordHash, name }) {
       email,
       passwordHash,
       name,
+      phone: null,
+      avatarUrl: null,
       chatId: null,
       expenses: [],
       balance: 0,
@@ -108,5 +110,7 @@ export function publicUser(u) {
     email: u.email,
     name: u.name,
     hasTelegram: !!u.chatId,
+    phone: u.phone || "",
+    avatarUrl: u.avatarUrl || "",
   };
 }

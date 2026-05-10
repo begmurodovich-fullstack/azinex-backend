@@ -21,7 +21,29 @@ export function getUserData(req, res) {
     expenses: user.expenses || [],
     balance: user.balance || 0,
     categories: user.categories || [],
+    profile: {
+      name: user.name,
+      phone: user.phone || "",
+      avatarUrl: user.avatarUrl || "",
+    }
   });
+}
+
+export function updateProfile(req, res) {
+  const { name, phone, avatarUrl } = req.body;
+  const result = updateUser(req.userId, (u) => {
+    if (name !== undefined) u.name = String(name).trim();
+    if (phone !== undefined) u.phone = String(phone).trim();
+    if (avatarUrl !== undefined) u.avatarUrl = String(avatarUrl).trim();
+    return {
+      name: u.name,
+      phone: u.phone || "",
+      avatarUrl: u.avatarUrl || "",
+    };
+  });
+
+  if (!result.ok) return res.status(400).json({ error: result.error });
+  res.json({ ok: true, profile: result.data });
 }
 
 export function updateBalance(req, res) {

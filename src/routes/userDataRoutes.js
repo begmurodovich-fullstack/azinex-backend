@@ -7,6 +7,7 @@ import {
   deleteExpense,
   addCategory,
   deleteCategory,
+  updateProfile,
 } from "../controllers/userDataController.js";
 
 const router = Router();
@@ -20,5 +21,6 @@ router.post("/user-data/expenses", addExpense);
 router.delete("/user-data/expenses/:id", deleteExpense);
 router.post("/user-data/categories", addCategory);
 router.delete("/user-data/categories/:key", deleteCategory);
+router.put("/user-data/profile", updateProfile);
 
 export default router;
