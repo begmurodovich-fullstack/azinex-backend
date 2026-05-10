@@ -4,6 +4,7 @@ import { config } from "./config.js";
 import authRoutes from "./routes/authRoutes.js";
 import notifyRoutes from "./routes/notifyRoutes.js";
 import telegramRoutes from "./routes/telegramRoutes.js";
+import userDataRoutes from "./routes/userDataRoutes.js";
 
 const app = express();
 
@@ -25,5 +26,6 @@ app.get("/", (req, res) => {
 app.use(authRoutes);
 app.use(notifyRoutes);
 app.use(telegramRoutes);
+app.use(userDataRoutes);
 
 export default app;

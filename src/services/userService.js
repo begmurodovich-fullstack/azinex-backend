@@ -32,6 +32,9 @@ export function createUser({ id, email, passwordHash, name }) {
       passwordHash,
       name,
       chatId: null,
+      expenses: [],
+      balance: 0,
+      categories: [],
     });
     return { ok: true };
   });

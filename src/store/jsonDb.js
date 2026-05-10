@@ -25,6 +25,14 @@ export function readStore() {
     const data = JSON.parse(raw);
     if (!Array.isArray(data.users)) data.users = [];
     if (!Array.isArray(data.pendingTelegramLinks)) data.pendingTelegramLinks = [];
+    
+    // Add missing fields for existing users
+    for (const u of data.users) {
+      if (!Array.isArray(u.expenses)) u.expenses = [];
+      if (typeof u.balance !== "number") u.balance = 0;
+      if (!Array.isArray(u.categories)) u.categories = [];
+    }
+    
     return data;
   } catch {
     return defaultStore();
